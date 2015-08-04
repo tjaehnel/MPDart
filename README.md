@@ -63,3 +63,21 @@ dmix/MPDroid configuration
 * Check Load local album covers
 
 If you followed my advice from above - That's it.
+
+Notice
+----
+Only use this software in closed, secured environments. It is subject to <whatever>-injection, since there is virtually no input validation at all.
+
+Generally, use this software at your own risk, it comes with no warranty at all.
+
+License
+----
+MPD Cover is released under the terms of the Lesser Beerware License.
+
+"THE LESSER BEER-WARE LICENSE" (Revision 1):
+<tjaehnel@gmail.com> wrote this file. As long as you retain this notice you
+can do whatever you want with this stuff. If we meet some day, and you think
+this stuff is worth it, you can buy me a beer in return.
+Anyway, since I do not drink beer at all, don't waste your money.
+
+Reference Beerware License: http://people.freebsd.org/~phk/
