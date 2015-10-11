@@ -2,6 +2,8 @@
 require_once('config.php');
 require_once('getid3/getid3.php');
 
+$coverfile = $_GET['coverfile'];
+
 // Only allow requests to cover.jpg and folder.jpg
 // Strip the suffix if the request is valid
 $isValidRequest = false;
@@ -19,6 +21,7 @@ if(substr($coverfile, -10) == "folder.jpg")
 
 if($isValidRequest)
 {
+	$coverfile = BASE_MUSIC_DIR.$coverfile;
 	if($handle = opendir($coverfile))
 	{
 		// Iterate through all files in the directory
@@ -38,9 +41,14 @@ if($isValidRequest)
 		}
 		closedir($handle);
 	}
-	// send the cover image to the browser
-	header('Content-Type: image/jpeg');
-	echo $OldThisFileInfo['comments']['picture']['0']['data'];
+	if(isset($Image)){
+		// send the cover image to the browser
+		header('Content-Type: image/jpeg');
+		echo $OldThisFileInfo['comments']['picture']['0']['data'];
+		//echo $Image;
+	} else {
+		header("HTTP/1.0 404 Not Found");
+	}
 }
 else
 {
