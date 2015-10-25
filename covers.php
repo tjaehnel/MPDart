@@ -18,10 +18,9 @@ if(substr($coverfile, -10) == "folder.jpg")
 	$isValidRequest = true;
 }
 
-
 if($isValidRequest)
 {
-	$coverdir = BASE_MUSIC_DIR.$coverdir;
+	$coverdir = BASE_MUSIC_DIR.'/'.$coverdir;
 	if($handle = opendir($coverdir))
 	{
 		// Iterate through all files in the directory
@@ -35,7 +34,7 @@ if($isValidRequest)
 			$getID3 = new getID3;
 			$id3Information = $getID3->analyze($mp3file);
 			if(isset($id3Information['comments']['picture'][0])){
-	   			$Image='data:'.$id3Information['comments']['picture'][0]['image_mime'].';charset=utf-8;base64,'.base64_encode($id3Information['comments']['picture'][0]['data']);
+	   			$Image=$id3Information['comments']['picture'][0]['data'];
 				break;
 			}
 		}
@@ -44,8 +43,7 @@ if($isValidRequest)
 	if(isset($Image)){
 		// send the cover image to the browser
 		header('Content-Type: image/jpeg');
-		echo $OldThisFileInfo['comments']['picture']['0']['data'];
-		//echo $Image;
+		echo $Image;
 	} else {
 		header("HTTP/1.0 404 Not Found");
 	}
