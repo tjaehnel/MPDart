@@ -7,6 +7,13 @@ See here for more information: https://github.com/abarisain/dmix/wiki/Album-Art-
 
 This is a simple PHP script that reads artwork from MP3 files and serves them on a webserver just as dmix/MPDroid expect them.
 
+Getting the software
+-----
+Either clone from GIT:
+
+    # git clone https://github.com/tjaehnel/MPDart.git
+    
+Or get the current HEAD source package from https://github.com/tjaehnel/MPDart/archive/master.zip
 
 External Libraries
 -----
