@@ -1,6 +1,6 @@
-MPD Cover
+MPDart
 ===
-Music Player Daemon (MPD) is a moltimedia player that runs on a - possibly headless - system and can be controlled via a large variety of web interfaces, applications and smartphone apps. Even though it supports many fields of the ID3 tags, its protocol lacks an option to send cover images to the clients.
+Music Player Daemon (MPD, http://www.musicpd.org/) is a multimedia player that runs on a - possibly headless - system and can be controlled via a large variety of web interfaces, applications and smartphone apps. Even though it supports many fields of the ID3 tags, its protocol lacks an option to send album cover art to the clients.
 
 Smartphone apps that are derivates of dmix (such as MPDroid) solve this problem by fetching cover art from a separate HTTP server.
 See here for more information: https://github.com/abarisain/dmix/wiki/Album-Art-on-your-LAN
@@ -10,8 +10,8 @@ This is a simple PHP script that reads artwork from MP3 files and serves them on
 
 External Libraries
 -----
-MPD Cover uses the PHP library getID3 to fetch the cover image from the file.
-If you clone the GIT repository, execute the following commands to automatically get a current version o the library
+MPDart uses the PHP library getID3 to fetch the cover image from the file.
+If you clone the GIT repository, execute the following commands to automatically get a current version of the library
 
     # git submodule init
     # git submodule update
@@ -21,10 +21,10 @@ If you use a packaged version, get the library from https://github.com/JamesHein
 Server configuration
 -----
 In MPD Cover there is not much to configure.
-Rename ``config.php.tpl`` to ``config.php`` and set the path to your music library. This must be the same as you used to configure your MPD.
+Rename ``config.php.tpl`` to ``config.php`` and set the path to your music library. This must be the same as you use in your MPD configuration.
 
-I use nginx, but Apache, lighttpd or any other webserver should do as long as it supports PHP and is able to rewrite URLs.
-You need a rewrite rule that calls ``covers.php?coverfile=???`` with the path the browser accesses.
+As webserver I use nginx, but Apache, lighttpd or any other should do as long as it supports PHP and is able to rewrite URLs.
+You need a rewrite rule that calls ``covers.php?coverfile=???`` where ??? is the path the browser accesses.
 
 This means ``/myartist/myalbum/cover.jpg`` must be rewritten to ``/covers.php?coverfile=/myartist/myalbum/cover.jpg``
 
@@ -60,7 +60,7 @@ dmix/MPDroid configuration
 ----
 * Start App
 * Navigate to Settings->Album Cover Settings
-* Check Load local album covers
+* Check *Load local album covers*
 
 If you followed my advice from above - That's it.
 
@@ -77,7 +77,8 @@ MPD Cover is released under the terms of the Lesser Beerware License.
 "THE LESSER BEER-WARE LICENSE" (Revision 1):
 <tjaehnel@gmail.com> wrote this file. As long as you retain this notice you
 can do whatever you want with this stuff. If we meet some day, and you think
-this stuff is worth it, you can buy me a beer in return.
-Anyway, since I do not drink beer at all, don't waste your money.
+this stuff is worth it, you could buy me a beer in return.
+But since I do not drink beer at all, don't waste your money.
 
 Reference Beerware License: http://people.freebsd.org/~phk/
+
